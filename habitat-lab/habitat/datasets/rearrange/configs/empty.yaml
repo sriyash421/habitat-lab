@@ -18,7 +18,7 @@ scene_sets:
   -
     name: "scene_test_split"
     included_substrings:
-      - "v3_sc4_staging"
+      - "v3_sc3_staging"
     excluded_substrings: []
 
 

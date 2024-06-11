@@ -10,11 +10,12 @@ defaults:
   - /habitat_baselines/rl/policy/obs_transforms@habitat_baselines.rl.policy.main_agent.obs_transforms.add_virtual_keys:
     - add_virtual_keys_base
   - /habitat_baselines/rl/policy@habitat_baselines.rl.policy.main_agent: hl_fixed
-  - /habitat_baselines/rl/policy/hierarchical_policy/defined_skills@habitat_baselines.rl.policy.main_agent.hierarchical_policy.defined_skills: nn_skills
+  # - /habitat_baselines/rl/policy/hierarchical_policy/defined_skills@habitat_baselines.rl.policy.main_agent.hierarchical_policy.defined_skills: oracle_skills
+  - /habitat_baselines/rl/policy/hierarchical_policy/defined_skills@habitat_baselines.rl.policy.main_agent.hierarchical_policy.defined_skills: oracle_skills
   - /habitat/task/measurements:
     - pddl_subgoal_reward
   - _self_
-
+  # - habitat_baselines/rl/policy: hl_fixed
 habitat:
   task:
     measurements:

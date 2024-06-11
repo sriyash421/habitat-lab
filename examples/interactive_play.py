@@ -72,6 +72,12 @@ from habitat.utils.visualizations.utils import (
     overlay_frame,
 )
 from habitat_sim.utils import viz_utils as vut
+from habitat.tasks.rearrange.actions.grip_actions import (
+    GazeGraspAction,
+    GripSimulatorTaskAction,
+    MagicGraspAction,
+    SuctionGraspAction,
+)
 
 try:
     import pygame
@@ -85,6 +91,7 @@ DEFAULT_RENDER_STEPS_LIMIT = 60
 SAVE_VIDEO_DIR = "./data/vids"
 SAVE_ACTIONS_DIR = "./data/interactive_play_replays"
 
+# DEFAULT_CFG="benchmark/rearrange/hab3_bench/single_agent_bench.yaml"
 
 def step_env(env, action_name, action_args):
     return env.step({"action": action_name, "action_args": action_args})
@@ -798,6 +805,6 @@ if __name__ == "__main__":
             task_config.actions.arm_action.arm_controller = "ArmEEAction"
         if task_config.type == "RearrangePddlTask-v0":
             task_config.actions["pddl_apply_action"] = PddlApplyActionConfig()
-
+        # task_config.actions.arm_action["grip_controller"] = MagicGraspAction()
     with habitat.Env(config=config) as env:
         play_env(env, args, config)
